@@ -197,7 +197,7 @@ int main(){
     int nc, nl, x0, y0, xn, yn, largura, altura, raio, fillmode;
     char caracter;
 
-    fin.open("C:/Users/carva/Desktop/Google Drive/CeT __ 2018.1/P.A_/Unidade_2/Projeto_PA_2/Figuras_Padrao/RetanguloP.txt"); //Diretório do arquivo de referência
+    fin.open("C:/Users/carva/Desktop/ProjetoPA/Arquivo/bola.txt"); //Diretório do arquivo de referência
 
     if(!fin.is_open()){
 
@@ -266,18 +266,19 @@ int main(){
         (*it)->draw(t);
 
     }
+    t.setBrush('.');
 
     //PARA GRAVAR EM UM ARQUIVO EXTERNO
 
-    t.setBrush('.');
 
-    fout.open("C:/Users/carva/Desktop/Google Drive/CeT __ 2018.1/P.A_/Unidade_2/Projeto_PA_2/Figuras_Padrao/Em_Branco/3.txt"); // Onde sera gravado a figura
+    fout.open("C:/Users/carva/Desktop/ProjetoPA/Arquivo/2.txt"); // Onde sera gravado a figura
 
     if(!fout.is_open()){
 
         cout<<"ERRO!";
         exit(0);
     }
+
 
     fout<<t;
     fout.close();

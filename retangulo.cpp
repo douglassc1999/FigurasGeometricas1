@@ -36,8 +36,8 @@ void Retangulo::draw(Screen &t){
           }
       }
       t.setBrush(' ');
-      for(int i=1; i<altura;i++){
-          for(int j=1; j<largura;j++){
+      for(int i=1; i<altura-1;i++){
+          for(int j=1; j<largura-1;j++){
               t.setPixel(y+i, x+j);
           }
       }
