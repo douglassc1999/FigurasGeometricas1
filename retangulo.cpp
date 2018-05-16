@@ -4,6 +4,7 @@
 using namespace std;
 Retangulo::Retangulo(int _x, int _y, int _largura, int _altura, int _fillmode){
 
+    // Atribuição das variáveis
     x = _x;
     y = _y;
     largura = _largura;
@@ -20,6 +21,8 @@ void Retangulo::draw(Screen &t){
 
   cout << "desenhando retangulo\n";
 
+  // A construçã do retângulo consiste na delimitação do laço pelas variáveis
+  // de largura e altura, e seu preenchimento linha a linha
   if(fillmode > 0){
       for(int i=0; i<altura;i++){
           for(int j=0; j<largura;j++){
@@ -29,6 +32,9 @@ void Retangulo::draw(Screen &t){
       cout<<t;
   }
 
+  // Para o retangulo nao preenchido, fazemos o retangulo como anteriormente, e adicionamos
+  // um novo retangulo sobreposto ao mesmo com o caracter ' ' como brush, e de limites menores
+  // num fator de '1'
   else{
       for(int i=0; i<altura;i++){
           for(int j=0; j<largura;j++){

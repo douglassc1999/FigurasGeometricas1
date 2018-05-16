@@ -7,8 +7,10 @@ class FiguraGeometrica{
 
 public:
 
+  //Construtor
   FiguraGeometrica();
 
+  //Destrutor
   ~FiguraGeometrica();
 
   // classes que possuem funcoes virtuais

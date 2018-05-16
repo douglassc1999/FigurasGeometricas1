@@ -12,99 +12,6 @@
 using namespace std;
 
 int main(){
-/*
-    //  FiguraGeometrica f;
-  FiguraGeometrica *pf;
-  Circulo c, *pc;
-  Reta rt;
-  Retangulo ro;
-
-  //vector<FiguraGeometrica*> figuras;
-  //string s, s2;
-
-  //ifstream fin, fin2;
-  //ofstream fout;
-
-
-  fin.open("C:/Users/carva/Desktop/dca1202-master/retangulo.txt");
-  if(!fin.is_open()){
-      cout<<"ERRO!";
-      exit(0);
-  }
-
-  fin2.open("C:/Users/carva/Desktop/Projeto_PA_2/Figuras_Padrao/reta.txt");
-  if(!fin2.is_open()){
-      cout<<"ERRO!";
-      exit(0);
-  }
-
-  while(fin2.good()){
-    getline(fin2, s2);
-     cout << s2 << endl;
-    }
-
-
-
-  while(fin.good()){
-    getline(fin, s);
-     cout << s << endl;
-    }
-  cout<<"O tamanho da string eh: "<<s.size()<<endl;
-
-  vector<char>::iterator vi;
-
-  fout.open("C:/Users/carva/Desktop/dca1202-master/retangulo.txt");
-  if(!fout.is_open()){
-    exit(0);
-  }
-
-
-  for(int i = 0; i < s.size();i++){
-      if(s[i] == '@'){
-          //s[i] = '.';
-          fout << ".";
-      }
-  }
-
-    cout << s << endl;
-
-
-  int selecao=0;
-
-  cout<<"Qual figura mane?\n";
-  cin>>selecao;
-  switch(selecao){
-
-  case 1: figuras.push_back(new Reta);         break;
-  case 2: figuras.push_back(new Retangulo);    break;
-  case 3: figuras.push_back(new Circulo);      break;
-  case 4: figuras.push_back(new Ponto);        break;
-  default: cout<<"Um valido\n";  break;
-  }
-
-
-   for(int i=0; i<figuras.size(); i++){
-     figuras[i]->draw();
-   }
-
-   for(int i=0; i<figuras.size(); i++){
-     delete figuras[i];
-   }
-
-  // ponteiros de uma classe herdeira
-  // nao podem apontar para objetos de uma
-  // classe derivada
-  // pc = &f;
-
-  f.draw();
-  c.draw();
-  pf = &c;
-  pf->draw();
-  pf = &rt;
-  pf->draw();
-  pf = &ro;
-  pf->draw();
-  */
 
     vector<FiguraGeometrica*> figuras;
     char sel;
@@ -131,6 +38,8 @@ int main(){
     cout<<"Informe o tipo de figura que voce quer desenhar: reta(r), retangulo(e) ou circulo(c)\n";
     cin>>sel;
     system("cls");
+
+    // De acordo com a escolha do usuário, faz a alocação no vetor figuras
 
     if (sel=='r' ||sel== 'R'){
         cout<<"Informe as coordenadas iniciais e finais da reta (x0, y0), (xn,yn):\n";
@@ -171,12 +80,17 @@ int main(){
 
     }
     system("cls");
+
+    //Imprime o que está no vetor usando iteradores
+
       for(vector<FiguraGeometrica*>::iterator it = figuras.begin(); it != figuras.end(); it++){
 
           (*it)->draw(t);
           t.clear();
 
     }
+
+    // Desaloca o vetor
 
     for(int i=0; i<figuras.size(); i++){
 
@@ -206,6 +120,9 @@ int main(){
 
     }
 
+    // Faz a análise do que está no arquivo e suas
+    // devidas atribuições de variáveis
+    // e alocação
     while(fin.good()){
 
         getline(fin, s);
@@ -257,19 +174,18 @@ int main(){
 
     }
 
-    Screen t(nl, nc);
-    t.setBrush(caracter);
+    Screen t(nl, nc); // criação da "tela"
+    t.setBrush(caracter); // set com o caracter lido
 
+    // Mostra o que esta no vetor
     for(vector<FiguraGeometrica*>::iterator it = figuras.begin(); it != figuras.end(); it++){
 
         t.clear();
         (*it)->draw(t);
 
     }
-    t.setBrush('.');
 
     //PARA GRAVAR EM UM ARQUIVO EXTERNO
-
 
     fout.open("C:/Users/carva/Desktop/ProjetoPA/Arquivo/2.txt"); // Onde sera gravado a figura
 
@@ -279,10 +195,11 @@ int main(){
         exit(0);
     }
 
-
+    // Atribui o que está no objeto ao arquivo direcionado
     fout<<t;
     fout.close();
 
+    // Desaloca o vetor
     for(int i=0; i<figuras.size(); i++){
         delete figuras[i];
     }

@@ -48,8 +48,6 @@ public:
       }
        return os;
   }
-
-  //void salvararq(const char *nome, const screen v)const; t.sa(nome,v)
   
 };
 #endif // SCREEN_H
